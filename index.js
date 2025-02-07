@@ -6,7 +6,6 @@ const mongoose = require('mongoose')
 const router = express.Router();
 const authRouter = require('./routers/authRouter')
 
-
 const app = express()
 app.use(cors())
 app.use(helmet())
@@ -17,6 +16,8 @@ app.use(express.urlencoded({ extended: true }))
 mongoose.connect(process.env.MONGO_URL).then(() => {
     console.log("Database conected")
 }).catch(err => { console.log(err) })
+
+
 
 app.use('/api/auth', authRouter)
 
